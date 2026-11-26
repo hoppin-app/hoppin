@@ -1,0 +1,20 @@
+[submodule "ios"]
+	path = ios
+	url = https://github.com/hoppin-app/ios.git
+	branch = .
+[submodule "server"]
+	path = server
+	url = https://github.com/hoppin-app/server.git
+	branch = .
+[submodule "website"]
+	path = website
+	url = https://github.com/hoppin-app/website.git
+	branch = .
+[submodule "lib"]
+	path = lib
+	url = https://github.com/hoppin-app/lib.git
+	branch = .
+[submodule "docs"]
+	path = docs
+	url = https://github.com/hoppin-app/docs.git
+	branch = .
