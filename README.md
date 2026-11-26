@@ -14,18 +14,21 @@ its own repo, pinned here as a submodule at versions that work together.
 | `server/` | [hoppin-app/server](https://github.com/hoppin-app/server) | Verification server and encrypted relay (Python) |
 | `website/` | [hoppin-app/website](https://github.com/hoppin-app/website) | hoppin.chat (Next.js) |
 | `lib/` | [hoppin-app/lib](https://github.com/hoppin-app/lib) | Shared crypto test vectors and the end-to-end test run |
-| `docs/` | [hoppin-app/docs](https://github.com/hoppin-app/docs) | The protocol spec, architecture, operations, App Store material |
+| `docs/` | hoppin-app/docs (private, team only) | The protocol spec, architecture, operations, App Store material |
 
 ## Getting started
 
 ```bash
-git clone --recursive git@github.com:hoppin-app/hoppin.git
+git clone --recursive https://github.com/hoppin-app/hoppin.git
 cd hoppin
 scripts/setup.sh
 ```
 
 `setup.sh` initialises the submodules, makes `git pull` keep them in step,
 and creates the server's Python environment.
+
+`docs/` is private. A clone gets every other folder; team members get
+`docs/` too when they run `setup.sh`, and anyone else sees it skipped.
 
 ## Working on it
 
@@ -43,9 +46,11 @@ SKIP_XCODE=1 lib/run_tests.sh
 
 ## Where to read more
 
-- How a message travels, and the security model: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- The binding protocol spec: [`docs/DESIGN_CONTRACT.md`](docs/DESIGN_CONTRACT.md)
-- The relay deployment: [`docs/ops/DEPLOY.md`](docs/ops/DEPLOY.md)
+Team only (in the private `docs/`):
+
+- How a message travels, and the security model: `docs/ARCHITECTURE.md`
+- The binding protocol spec: `docs/DESIGN_CONTRACT.md`
+- The relay deployment: `docs/ops/DEPLOY.md`
 
 ## License
 
