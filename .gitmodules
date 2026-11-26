@@ -18,3 +18,4 @@
 	path = docs
 	url = https://github.com/hoppin-app/docs.git
 	branch = .
+	update = none

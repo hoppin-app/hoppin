@@ -2,7 +2,8 @@
 #
 # setup.sh — get a fresh hoppin checkout ready to work in.
 #
-#   1. fetches every submodule (ios, server, website, lib, docs)
+#   1. fetches every submodule (ios, server, website, lib), and docs too
+#      if you have access to it (it is private, team only)
 #   2. makes git pull / checkout keep them in step from now on
 #   3. creates server/venv with the server's requirements
 #
@@ -17,6 +18,16 @@ log() { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
 
 log "fetching submodules"
 git submodule update --init --recursive
+
+# docs is private: .gitmodules skips it (update = none) so outside clones
+# work. Fetch it here for team members, and remember the choice locally.
+if GIT_TERMINAL_PROMPT=0 git -c submodule.docs.update=checkout \
+        submodule update --init docs >/dev/null 2>&1; then
+    git config submodule.docs.update checkout
+    log "docs fetched (team access)"
+else
+    log "docs is private (team only), skipped"
+fi
 
 log "making pull and checkout update submodules (this repo only)"
 git config submodule.recurse true
